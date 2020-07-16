@@ -20,8 +20,8 @@ addon_info = {
 	"addon_description": _("""This addon is aimed to get the status of salaat time.
 If pressed once, gets the status of prayer or salaat time.
 If pressed twice, opens main window of Salaat Time program.
-Default gesture for this addon is NVDA+Alt+S", and as always it can be changed going to:
-NVDA menu/preferences/Input gestures/Salaat time.""),
+Default gesture for this addon is NVDA+Alt+S, and as always it can be changed going to:
+NVDA menu/preferences/Input gestures/Salaat time."""),
 	# version
 	"addon_version": "0.1",
 	# Author(s)
