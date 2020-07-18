@@ -21,7 +21,7 @@ def findSalatTimeObject():
 	#prefex of notification messages,or name of salat time object.
 	namePrefex= (u'حان وقت صلاة', u'الصلاة التالية هي', u'الفجر ينتهي في',
 	u'It is time to pray', u'Next is', u'Fajr ends at',
-	u'Prière Courante est', u'Prochaine est'
+	u'Il est temps de prier', u'Prochaine est', u'Fajr se termine à'
 	)
 	h,FindWindowExW = 0, winUser.user32.FindWindowExW
 	for element in l:
