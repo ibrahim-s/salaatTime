@@ -1,0 +1,55 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 'salaatTime' '0.4'\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
+"POT-Creation-Date: 2021-09-30 06:00+0300\n"
+"PO-Revision-Date: 2021-09-30 06:05+0300\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.0.7\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#. We initialize the scripts category shown on input gestures dialog
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on to be shown on installation and add-on information.
+#: addon\globalPlugins\salaatTime.py:62 buildVars.py:17
+msgid "Salaat Time"
+msgstr ""
+
+#. Translators: the message presented when salatTime tray icon was not found
+#: addon\globalPlugins\salaatTime.py:68
+msgid "Salat Time not found"
+msgstr ""
+
+#. Translators: the message reported when it is not possible to activate salaatTime icon.
+#: addon\globalPlugins\salaatTime.py:90
+msgid "Unable to activate salaatTime icon"
+msgstr ""
+
+#. Translators: message presented when user performes input help for the alt+NVDA+S gesture
+#: addon\globalPlugins\salaatTime.py:93
+msgid ""
+"If pressed once, announces salaattime status. If pressed twice, activates "
+"salaattime icon and opens main window of Salaat Time."
+msgstr ""
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#: buildVars.py:20
+msgid ""
+"This addon is aimed to get the status of salaat time.\n"
+"If pressed once, gets the status of prayer or salaat time.\n"
+"If pressed twice, opens main window of Salaat Time program.\n"
+"Default gesture for this addon is NVDA+Alt+S, and as always it can be "
+"changed going to:\n"
+"NVDA menu/preferences/Input gestures/Salaat time."
+msgstr ""
