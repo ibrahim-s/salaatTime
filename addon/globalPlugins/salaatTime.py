@@ -18,10 +18,11 @@ from logHandler import log
 def findSalatTimeObject():
 	# We get the systray
 	l = (u"shell_TrayWnd", u"TrayNotifyWnd", u"SysPager", u"ToolbarWindow32")
-	#prefex of notification messages,or name of salat time object.
+	#strings present in notification messages,or name of salat time object.
 	namePrefex= (u'حان وقت صلاة', u'الصلاة التالية هي', u'الفجر ينتهي في',
 	u'It is time to pray', u'Next is', u'Fajr ends at',
-	u'Il est temps de prier', u'Prochaine est', u'Fajr se termine à'
+	u'Il est temps de prier', u'Prochaine est', u'Fajr se termine à',
+	u'Namazı Vakti', u'Sonraki', u'Sabah Namazı Bitiş Vakti', u'Kılma Zaman'
 	)
 	h,FindWindowExW = 0, winUser.user32.FindWindowExW
 	for element in l:
@@ -33,7 +34,7 @@ def findSalatTimeObject():
 		o = obj.firstChild
 		while o:
 			name=o.name
-			if  name != None and any(name.startswith(s) for s in namePrefex):
+			if  name != None and any(s in name for s in namePrefex):
 				# salat time object found , quit while loop
 				break
 
