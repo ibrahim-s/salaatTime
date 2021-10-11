@@ -23,7 +23,7 @@ If pressed twice, opens main window of Salaat Time program.
 Default gesture for this addon is NVDA+Alt+S, and as always it can be changed going to:
 NVDA menu/preferences/Input gestures/Salaat time."""),
 	# version
-	"addon_version": "0.5-dev",
+	"addon_version": "0.5",
 	# Author(s)
 	"addon_author": "Ibrahim Hamadeh <ibra.hamadeh@hotmail.com>, AlaqsaVoice <AlaqsaVoice1440@gmail.com>",
 	# URL for the add-on documentation support
