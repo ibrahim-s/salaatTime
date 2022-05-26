@@ -2,7 +2,7 @@
 
 *	Authors: Ibrahim Hamadeh, AlaqsaVoice  
 *	NVDA compatibility: 2019.3 and later 
-*	Download [version 0.6][1]
+*	Download [version 0.7][1]
 
 This addon is aimed to get the status of Salaat time notification icon on system tray.  
 For more information on Salaat time program go to [https://www.salaattime.com/salaat-time/][2]  
@@ -24,6 +24,10 @@ and from there, you can access the prayer times of any days in the year, either 
 *	Worth mentioning also, alot of controls that was not labeled before has been labeled or named  
 especially the play, stop and a lot of other buttons in the setting dialog of the program.  
  
+### Changes for 0.7 ###
+
+*	Update last tested version to 2022.1, to comply with latest NVDA addon's api.
+
 ### Changes for 0.6 ###
 
 *	Code enhancement, so that now from the first window of the program, you can access salaat times.
@@ -51,6 +55,6 @@ especially the play, stop and a lot of other buttons in the setting dialog of th
 
 *	Initial Release
 
-[1]: https://github.com/ibrahim-s/salaatTime/releases/download/v0.6/salaatTime-0.6.nvda-addon
+[1]: https://github.com/ibrahim-s/salaatTime/releases/download/v0.7/salaatTime-0.7.nvda-addon
 
 [2]: https://www.salaattime.com/salaat-time/
