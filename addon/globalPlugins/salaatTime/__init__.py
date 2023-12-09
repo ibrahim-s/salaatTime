@@ -13,6 +13,10 @@ import winUser
 import mouseHandler
 import core
 import controlTypes
+import config
+import gui, wx
+from gui import guiHelper
+from .update import Initialize
 from logHandler import log
 
 def findSalatTimeObject():
@@ -63,6 +67,24 @@ addonHandler.initTranslation()
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	# We initialize the scripts category shown on input gestures dialog
 	scriptCategory = _("Salaat Time")
+	def __init__(self):
+		super(GlobalPlugin, self).__init__()
+		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.append(SalaatTime)
+		# To allow check for update after NVDA started.
+		core.postNvdaStartup.register(self.checkForUpdate)
+
+	def checkForUpdate(self):
+		if not config.conf["maagimAraby"]["autoUpdate"]:
+			# Auto update is False
+			return
+		# starting the update process...
+		def checkWithDelay():
+			_beginChecking = Initialize()
+			_beginChecking.start()
+		wx.CallLater(7000, checkWithDelay)
+
+	def terminate(self):
+			gui.settingsDialogs.NVDASettingsDialog.categoryClasses.remove(SalaatTime)
 
 	def script_announceSalatTime(self, gesture):
 		o = findSalatTimeObject()
@@ -99,3 +121,25 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		"kb:NVDA+alt+s": "announceSalatTime",
 	}
 
+#default configuration 
+configspec={
+
+	"autoUpdate": "boolean(default= True)"
+}
+config.conf.spec["salaatTime"]= configspec
+
+# Seting panel for Salaat time.
+class SalaatTime(gui.settingsDialogs.SettingsPanel):
+	# Translators: title of the dialog
+	title= _("Salaat Time")
+
+	def makeSettings(self, sizer):
+		settingsSizerHelper = guiHelper.BoxSizerHelper(self, sizer=sizer)
+
+		# Translators: label of the check box 
+		self.updateCheckBox=wx.CheckBox(self,label=_("Check for update on startup"))
+		settingsSizerHelper.addItem(self.updateCheckBox)
+		self.updateCheckBox.SetValue(config.conf["salaatTime"]["autoUpdate"])
+
+	def onSave(self):
+		config.conf["salaatTime"]["autoUpdate"]= self.updateCheckBox.IsChecked() 

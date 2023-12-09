@@ -23,7 +23,7 @@ If pressed twice, opens main window of Salaat Time program.
 Default gesture for this addon is NVDA+Alt+S, and as always it can be changed going to:
 NVDA menu/preferences/Input gestures/Salaat time."""),
 	# version
-	"addon_version": "0.8",
+	"addon_version": "0.9",
 	# Author(s)
 	"addon_author": "Ibrahim Hamadeh <ibra.hamadeh@hotmail.com>, AlaqsaVoice <AlaqsaVoice1440@gmail.com>",
 	# URL for the add-on documentation support
@@ -43,7 +43,7 @@ import os.path
 
 # Define the python files that are the sources of your add-on.
 # You can use glob expressions here, they will be expanded.
-pythonSources = [os.path.join("addon", "globalPlugins", "*.py")]
+pythonSources = [os.path.join("addon", "globalPlugins", "salaatTime", "*.py")]
 
 # Files that contain strings for translation. Usually your python sources
 i18nSources = pythonSources + ["buildVars.py"]
