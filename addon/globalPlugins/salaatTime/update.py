@@ -169,6 +169,7 @@ class AddonFlow(Thread):
 		if tempPath:
 			os.unlink(tempPath)
 		# to restart NVDA
+		from gui import addonGui
 		gui.addonGui.promptUserForRestart()
 
 	def doNothing():

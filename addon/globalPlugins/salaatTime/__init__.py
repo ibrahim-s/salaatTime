@@ -74,7 +74,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		core.postNvdaStartup.register(self.checkForUpdate)
 
 	def checkForUpdate(self):
-		if not config.conf["maagimAraby"]["autoUpdate"]:
+		if not config.conf["salaatTime"]["autoUpdate"]:
 			# Auto update is False
 			return
 		# starting the update process...
