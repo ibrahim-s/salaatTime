@@ -101,7 +101,11 @@ class AddonFlow(Thread):
 		if globalVars.appArgs.secure or config.isAppX or globalVars.appArgs.launcher:
 			AddonFlow.doNothing()
 		request = urllib.request.Request(urlRepos)
-		content = urllib.request.urlopen(request).read()
+		try:
+			content = urllib.request.urlopen(request).read()
+		except:
+			log.info(f'Error fetching {myAddon.manifest["summary"]} addon data during update feature, most likely due to absence of internet connection.')
+			return
 		githubApi = json.loads(content.decode('utf-8'))
 		newVersion= githubApi[0]["tag_name"].strip('v')
 		currVersion= myAddon.manifest["version"]
