@@ -15,6 +15,7 @@ from urllib.request import urlopen
 import json
 import config
 import gui
+from gui import blockAction
 import shutil
 import tones
 import time
@@ -85,6 +86,7 @@ directory = ""
 
 class Initialize(Thread):
 	# Creating the constructor of the newly created GlobalPlugin class.
+	@blockAction.when(blockAction.Context.MODAL_DIALOG_OPEN)
 	def __init__(self):
 		# Call of the constructor of the parent class.
 		super(Initialize, self).__init__()
