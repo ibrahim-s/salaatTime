@@ -8,7 +8,6 @@
 import ctypes
 import globalPluginHandler, scriptHandler
 from scriptHandler import script
-from gui.message import isModalMessageBoxActive
 import ui
 import NVDAObjects
 import api
@@ -155,7 +154,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			# Auto update is False
 			return
 		# Do not check for update in these conditions.
-		if globalVars.appArgs.secure or isModalMessageBoxActive or globalVars.appArgs.launcher:
+		if globalVars.appArgs.secure or globalVars.appArgs.launcher:
 			return
 		# starting the update process...
 		def checkWithDelay():
