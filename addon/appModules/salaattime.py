@@ -17,6 +17,25 @@ todayList= []
 objList= []
 salatList = ["  ", "الفجر", "الشروق", "الظهر", "العصر", "المغرب", "العِشاء"]
 x = 0
+
+def processTime(time24):
+	''' Change time from 24 format to 12 hours format. '''
+	if ':' not in time24:
+		return ""
+	hrs, mins= time24.split(':')
+	hrs= int(hrs)
+	if hrs>= 12 <24:
+		suffix= ' PM'
+	else:
+		suffix= ' AM'
+	if hrs== '12':
+		hrs= '12'
+	elif hrs== '24':
+		hrs= '12'
+	else:
+		hrs= hrs%12
+	return str(hrs)+':' + mins+ suffix
+
 class AppModule(appModuleHandler.AppModule):
 	def __init__(self, *args, **kwargs):
 		super(AppModule, self).__init__(*args, **kwargs)
@@ -43,10 +62,11 @@ class AppModule(appModuleHandler.AppModule):
 			if not todayList:
 				try:
 					target= obj.parent.parent.firstChild.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild
-					todayList=target.name.split('\t')
-				except: pass
-#				x=0
-				#log.info(f"todayList: {todayList}")
+					#todayList=target.name.split('\t')
+					todayList= [processTime(t) for t in target.name.split('\t')]
+				except:
+					pass
+				log.info(f"todayList: {todayList}")
 			for key in ('downArrow', 'upArrow', 'leftArrow', 'rightArrow'):
 				self.bindGesture(f'kb:{key}', 'times')
 
@@ -54,10 +74,10 @@ class AppModule(appModuleHandler.AppModule):
 			x=0
 			for key in ('downArrow', 'upArrow', 'leftArrow', 'rightArrow'):
 				self.bindGesture(f'kb:{key}', 'times')
-			objList = obj.IAccessibleObject.accName(obj.IAccessibleChildID).split('	')
+			#objList = obj.IAccessibleObject.accName(obj.IAccessibleChildID).split('	')
+			objList = [processTime(t) for t in obj.IAccessibleObject.accName(obj.IAccessibleChildID).split('	')]
 			n = objList[0].split(' ')
 			obj.name = ' '.join(n[::-1])
-		#else:
 		if obj.windowClassName not in ('ThunderRT6PictureBoxDC', 'ThunderRT6ListBox'):
 			self.clearGestureBindings()
 			self.bindGestures(self.__gestures)
@@ -92,5 +112,5 @@ class AppModule(appModuleHandler.AppModule):
 			_list= objList
 		elif focus.windowClassName== 'ThunderRT6PictureBoxDC':
 			_list= todayList
-		#log.info(f"x: {x}, objLis: {objList}")
+		log.info(f"x: {x}, objLis: {objList}")
 		ui.message(f"{salatList[int(x)]}: الساعة {_list[int(x)]}")

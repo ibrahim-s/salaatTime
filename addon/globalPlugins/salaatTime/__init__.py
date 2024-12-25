@@ -8,6 +8,7 @@
 import ctypes
 import globalPluginHandler, scriptHandler
 from scriptHandler import script
+from gui.message import isModalMessageBoxActive
 import ui
 import NVDAObjects
 import api
@@ -16,7 +17,7 @@ import windowUtils
 import mouseHandler
 import core
 import controlTypes
-import config
+import config, globalVars
 import gui, wx
 from gui import guiHelper
 from .update import Initialize
@@ -152,6 +153,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def checkForUpdate(self):
 		if not config.conf["salaatTime"]["autoUpdate"]:
 			# Auto update is False
+			return
+		# Do not check for update in these conditions.
+		if globalVars.appArgs.secure or isModalMessageBoxActive or globalVars.appArgs.launcher:
 			return
 		# starting the update process...
 		def checkWithDelay():
